@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://nano.to/dist/vue.min.js"></script>
+    <!-- <script src="https://nano.to/dist/axios.min.js"></script> -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <title>Speech To Code</title>
+    <style>
+      .render {
+        width: 100%;
+        background: #212529;
+        color: #00e124;
+        font-size: 16px;
+        font-family: monospace;
+        min-height: 60vh;
+        border: 2px solid #ffffff42;
+        border-radius: 5px;
+        padding: 0;
+      }
+      .track {
+        position: absolute;
+        width: 28px;
+        height: 100%;
+        background: red;
+        left: 1px;
+        top: 0;
+      }
+      .number {
+        background: #282d32;
+        padding: 10px 15px;
+        margin-right: 10px;
+        color: #878585;
+      }
+      .line {
+        display: flex;
+        align-items: center;
+      }
+      .code {
+        /*padding: 10px;*/
+      }
+    </style>    
+  </head>
+  <body class="container pt-4 bg-dark">
+    <div id="app">
+      <div class="render">
+        <!-- <div class="track"></div> -->
+        <div v-for="(i, index) in test.split('\n') " class="line">
+          <div class="number">{{ index + 1 }}</div>
+          <div class="code">{{i}}</div>
+        </div>
+      </div>
+      <h2 class="mt-4 text-light">Transcript</h2>
+      <div class="p-3" style="border: 1px solid gray; height: 60px; border-radius: 8px;">
+        <span id="final" class="text-light"></span>
+        <span id="interim" class="text-secondary"></span>
+      </div>
+      <div class="mt-4">
+        <button class="btn btn-success" id="start">Start</button>
+        <button class="btn btn-danger" id="stop">Stop</button>
+        <p id="status" class="lead mt-3 text-light" style="display: none">Listenting ...</p>
+      </div>
+    </div>
+  </body>
+  <script src="./speech.js"></script>
+  <!-- <script src="./language.js"></script> -->
+</html>
