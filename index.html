@@ -43,7 +43,6 @@
         align-items: center;
       }
       .code {
-        /*padding: 10px;*/
       }
     </style>    
   </head>
@@ -62,9 +61,9 @@
         <span id="interim" class="text-secondary"></span>
       </div>
       <div class="mt-4">
-        <button class="btn btn-success" id="start">Start</button>
-        <button class="btn btn-danger" id="stop">Stop</button>
-        <p id="status" class="lead mt-3 text-light" style="display: none">Listenting ...</p>
+        <button @click="start()" class="btn btn-success" id="start">Start</button>
+        <button @click="stop()" class="btn btn-danger" id="stop">Stop</button>
+        <p v-if="listening" id="status" class="lead mt-3 text-light" style="display: none">Listenting ...</p>
       </div>
     </div>
   </body>

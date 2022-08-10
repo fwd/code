@@ -58,6 +58,7 @@ if ("webkitSpeechRecognition" in window) {
 new Vue({
     el: '#app',
     data: {
+      listening: false,
       index: 0,
       test: `const myHeading = document.querySelector('h1');
 myHeading.textContent = 'Hello world!';
@@ -74,5 +75,14 @@ myHeading.textContent = 'Hello world!';
        // speechRecognition.start();
        // speechRecognition.stop();
     },
-    methods: {}
+    methods: {
+      start() {
+        this.listening = true
+        speechRecognition.start()
+      },
+      stop() {
+        this.false = false
+        speechRecognition.stop()
+      },
+    }
 })
